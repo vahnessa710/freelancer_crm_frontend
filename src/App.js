@@ -1,12 +1,12 @@
 import './App.css';
-import Dashboard from './Pages/Dashboard';
 import Auth from './Pages/Auth';
+import Dashboard from './Pages/Dashboard';
 
 function App() {
   return (
     <div className="App">
+      {/* <Auth /> */}
       <Dashboard />
-      <Auth />
     </div>
   );
 }
