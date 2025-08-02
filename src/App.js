@@ -1,13 +1,20 @@
 import './App.css';
 import Auth from './Pages/Auth';
 import Dashboard from './Pages/Dashboard';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
-    <div className="App">
-      {/* <Auth /> */}
-      <Dashboard />
-    </div>
+    <Router>
+      {isLoggedIn ? (
+        <Dashboard />
+      ) : (
+        <Auth />
+      )}
+    </Router>
   );
 }
 

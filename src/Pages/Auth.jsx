@@ -1,3 +1,5 @@
+import logo from "../Assets/Images/logo.png";
+
 function Login({ onLogin }) {
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -15,12 +17,13 @@ function Login({ onLogin }) {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center font-sans px-4">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-gray-800 tracking-tight">
+          <img src={logo} alt="Logo" className="mx-auto" />
+          {/* <h2 className="text-3xl font-bold text-gray-800 tracking-tight">
             Tracklance
           </h2>
           <p className="text-sm text-gray-500 mt-1">
             Track every gig like a pro.
-          </p>
+          </p> */}
         </div>
 
         <form className="space-y-5">
