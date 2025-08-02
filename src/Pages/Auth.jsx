@@ -1,29 +1,32 @@
-function Login({ onLogin }) {
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const email = e.target.email.value;
-  //   const password = e.target.password.value;
+import logo from "../Assets/Images/logo.png";
 
-  //   if (email === "admin@hrlite.com" && password === "password123") {
-  //     onLogin();
-  //   } else {
-  //     alert("Invalid email or password");
-  //   }
-  // };
+function Login({ onLogin }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    if (email === "admin@tracklance.com" && password === "password") {
+      onLogin();
+    } else {
+      alert("Invalid email or password");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center font-sans px-4">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-gray-800 tracking-tight">
+          <img src={logo} alt="Logo" className="mx-auto" />
+          {/* <h2 className="text-3xl font-bold text-gray-800 tracking-tight">
             Tracklance
           </h2>
           <p className="text-sm text-gray-500 mt-1">
             Track every gig like a pro.
-          </p>
+          </p> */}
         </div>
 
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
           {/* Email */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
