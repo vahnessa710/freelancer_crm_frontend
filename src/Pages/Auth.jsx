@@ -1,17 +1,17 @@
 import logo from "../Assets/Images/logo.png";
 
 function Login({ onLogin }) {
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const email = e.target.email.value;
-  //   const password = e.target.password.value;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-  //   if (email === "admin@hrlite.com" && password === "password123") {
-  //     onLogin();
-  //   } else {
-  //     alert("Invalid email or password");
-  //   }
-  // };
+    if (email === "admin@tracklance.com" && password === "password") {
+      onLogin();
+    } else {
+      alert("Invalid email or password");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center font-sans px-4">
@@ -26,7 +26,7 @@ function Login({ onLogin }) {
           </p> */}
         </div>
 
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
           {/* Email */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
