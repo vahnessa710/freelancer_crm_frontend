@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       {isLoggedIn ? (
-        <Dashboard onLogin={() => setIsLoggedIn(false)}/>
+        <Dashboard onLogout={() => setIsLoggedIn(false)}/>
       ) : (
         <Auth onLogin={() => setIsLoggedIn(true)}/>
       )}
