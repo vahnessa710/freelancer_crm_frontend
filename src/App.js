@@ -10,11 +10,11 @@ function App() {
 
   return (
     <Router>
-      {isLoggedIn ? (
+      {/* {isLoggedIn ? ( */}
         <Dashboard onLogout={() => setIsLoggedIn(false)}/>
-      ) : (
+      {/* ) : (
         <Auth onLogin={() => setIsLoggedIn(true)}/>
-      )}
+      )} */}
     </Router>
   );
 }
