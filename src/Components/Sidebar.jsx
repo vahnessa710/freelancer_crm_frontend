@@ -10,7 +10,7 @@ const Sidebar = ({onLogout}) => {
     navigate('/auth');
   }
   return (
-    <aside className="h-full w-64 bg-gray-900 text-white flex flex-col shadow-lg">
+    <aside className="h-vh w-64 bg-gray-900 text-white flex flex-col shadow-lg">
       <div className="px-6 py-4 border-b border-gray-700">
         <h1 className="text-lg font-bold tracking-wide text-gray-300 uppercase">Main Menu</h1>
       </div>
