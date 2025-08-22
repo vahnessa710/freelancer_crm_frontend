@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { FaRegTrashCan, FaRegPenToSquare} from 'react-icons/fa6';
 import { FaRegCheckCircle } from "react-icons/fa";
 const Project = () => {
@@ -11,11 +12,21 @@ const Project = () => {
     deliveryDays: '',
   });
 
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/v1/users/1/clients/1/projects')
+      .then((response) => {
+        setProjects(response.data.data || response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching projects:', error);
+      });
+  }, []);
+
   const handleInput = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newProject = {
       ...formData,
@@ -57,26 +68,18 @@ const Project = () => {
                 <th className="px-4 py-3">Project</th>
                 <th className="px-4 py-3">Price</th>
                 <th className="px-4 py-3">Delivered In</th>
-                <th className="px-4 py-3">Progress</th>
+                <th className="px-4 py-3">Status</th>
               </tr>
             </thead>
             <tbody>
               {projects.map((proj, index) => (
                 <tr key={index} className="border-b hover:bg-gray-50">
-                  <td className="px-4 py-3">{proj.client}</td>
-                  <td className="px-4 py-3">{proj.name}</td>
+                  <td className="px-4 py-3">{proj.client.name}</td>
+                  <td className="px-4 py-3">{proj.title}</td>
                   <td className="px-4 py-3">₱{proj.price.toLocaleString()}</td>
                   <td className="px-4 py-3">{proj.deliveryDays} days</td>
                   <td className="px-4 py-3">
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
-                      <div
-                        className={`h-2.5 rounded-full ${
-                          proj.progress === 100 ? 'bg-green-500' : 'bg-yellow-500'
-                        }`}
-                        style={{ width: `${proj.progress}%` }}
-                      />
-                    </div>
-                    <span className="text-xs ml-2">{proj.progress}%</span>
+                    {proj.status === 0 ? 'Pending' : proj.status === 1 ? 'Done' : 'Cancelled'}
                   </td>
                   <td className="flex px-4 py-3">
                     <span className="px-4 py-3 text-red-600" onClick={() => handleDelete(index)}><FaRegTrashCan /></span>

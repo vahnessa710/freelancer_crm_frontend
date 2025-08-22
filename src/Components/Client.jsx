@@ -13,7 +13,7 @@ function Client({ userId }) {
 
   return (
     <div className="text-xl">
-      <h2>Clients</h2>
+      <h2>Clients List</h2>
       <ul>
         {clients.map(client => (
           <li key={client.id}>{client.name} ({client.email})</li>
